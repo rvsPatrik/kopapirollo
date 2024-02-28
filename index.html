@@ -12,6 +12,8 @@
         font-family: Arial, sans-serif;
         text-align: center;
         position: relative; 
+        margin: 0;
+        padding: 0;
     }
     h1 {
         margin-top: 50px;
@@ -22,20 +24,20 @@
         margin-top: 20px;
     }
     #choices button {
-        margin: 0 0px;
+        margin: 0 5px; 
         padding: 10px 20px;
         font-size: 16px;
         cursor: pointer;
     }
     #result {
-        color: red;
+        color:rgb(255, 255, 255);
         margin-top: 10px;
         font-size: 20px;
     }
     #score-container {
         color: black;
         position: absolute;
-        top: -40px; 
+        top: -35px; 
         right: 10px;
         background-color: #f0f0f0;
         border: 1px solid #ccc;
@@ -49,11 +51,23 @@
     #reset-button {
         padding: 5px 10px;
     }
+
+    /* Adjustments for smaller screens */
+    @media only screen and (max-width: 600px) {
+        h1 {
+            margin-top: 20px;
+        }
+        #score-container {
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+    }
 </style>
 </head>
 
 <body>
-<audio id="background-music" src="muzsika.mp3"  loop style="display: none;">
+<audio id="background-music" src="muzsika.mp3" loop style="display: none;">
     Your browser does not support the <code>audio</code> element.
 </audio>
 
@@ -75,17 +89,16 @@
 </div>
 
 <script>
+    let isMusicStarted = false;
 
-let isMusicStarted = false;
-
-function startBackgroundMusic() {
-    if (!isMusicStarted) {
-        const audio = document.getElementById('background-music');
-        audio.play();
-        audio.volume = 0.1; 
-        isMusicStarted = true;
+    function startBackgroundMusic() {
+        if (!isMusicStarted) {
+            const audio = document.getElementById('background-music');
+            audio.play();
+            audio.volume = 0.1; 
+            isMusicStarted = true;
+        }
     }
-}
 
     let playerScore = 0;
     let computerScore = 0;
