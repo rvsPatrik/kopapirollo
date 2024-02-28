@@ -11,7 +11,7 @@
         background-repeat: no-repeat;
         font-family: Arial, sans-serif;
         text-align: center;
-        position: relative; 
+        position: relative;
         margin: 0;
         padding: 0;
     }
@@ -24,7 +24,7 @@
         margin-top: 20px;
     }
     #choices button {
-        margin: 0 5px; 
+        margin: 0 5px;
         padding: 10px 20px;
         font-size: 16px;
         cursor: pointer;
@@ -37,7 +37,7 @@
     #score-container {
         color: black;
         position: absolute;
-        top: -35px; 
+        top: -35px;
         right: 10px;
         background-color: #f0f0f0;
         border: 1px solid #ccc;
@@ -58,9 +58,11 @@
             margin-top: 20px;
         }
         #score-container {
-            top: 0;
+            top: auto;
+            bottom: 0;
             left: 0;
             right: 0;
+            transform: translateY(-100%);
         }
     }
 </style>
@@ -95,7 +97,7 @@
         if (!isMusicStarted) {
             const audio = document.getElementById('background-music');
             audio.play();
-            audio.volume = 0.1; 
+            audio.volume = 0.1;
             isMusicStarted = true;
         }
     }
@@ -120,8 +122,8 @@
         if (user === computer) {
             return 'It\'s a tie!';
         } else if ((user === 'rock' && computer === 'scissors') ||
-                   (user === 'paper' && computer === 'rock') ||
-                   (user === 'scissors' && computer === 'paper')) {
+            (user === 'paper' && computer === 'rock') ||
+            (user === 'scissors' && computer === 'paper')) {
             return 'You win!';
         } else {
             return 'You lose!';
